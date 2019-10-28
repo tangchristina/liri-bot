@@ -1,21 +1,34 @@
-require("dotenv").config();
 
+
+
+require("dotenv").config();
+var axios = require("axios");
 var keys = require("./keys.js");
 
-var spotify = new Spotify(keys.spotify);
+//var spotify = new Spotify(keys.spotify);
 
 //setting the command to the third item the user types into the command line
 var command = process.argv[2];
 var secondCommand = process.argv[3];
+
+
 switch (command) {
     case('concert-this'):
     getConcerts();
     break;
     case('spotify-this-song'):
-    getSpotify(secondCommand);
+    if(secondCommand) {
+        getSpotify(secondCommand);
+    } else {
+        getSpotify("The Sign");
+    }
     break;
     case('movie-this'):
-    getMovie();
+    if (secondCommand) {
+     getMovie(secondCommand);
+    } else {
+        getMovie("Mr. Nobody");
+    }
     break;
     case('do-what-it-says'):
     getAction();
@@ -37,14 +50,18 @@ for (var i = 4; i < process.argv.length; i++) {
 }
 
 // Then run a request with axios to the OMDB API with the movie specified
-var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+var movieName = secondCommand;
+var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
 // This line is just to help us debug against the actual URL.
 console.log(queryUrl);
 
 axios.get(queryUrl).then(
   function(response) {
+    console.log("Title: " + response.data.Title);
     console.log("Release Year: " + response.data.Year);
+    console.log("imdb Rating: " + response.data.imdbRating);
+    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[2].Value);
   })
   .catch(function(error) {
     if (error.response) {
