@@ -12,6 +12,7 @@ Install node package modules (npm install) from the following:
 -Axios: grabs data from the OMDB API and BandsinTown API
 -Moment: used to convert to date format when displaying concert information
 -node-spotify-api: fetches data from the Spotify API
+-fs: accesses external files and pulls information
 -dotenv: file that holds private API keys and to set what are known as environment variables to the global `process.env` object in node
 
 # Instructions

@@ -73,6 +73,8 @@ axios.get(queryUrl).then(
   });
 }
 
+
+//Function that fetches bandsintown information
 function getConcert() {
 var bandName = secondCommand;
 var queryUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp";
@@ -118,12 +120,16 @@ function getAction() {
     });
 }
 
+
+//Function that fetches spotify information
+
+//Switch function
   switch (command) {
     case('get-concert'):
     getConcert();
     break;
     
-    case('spotify-this-song'):
+    case('get-spotify'):
     if(secondCommand) {
         getSpotify(secondCommand);
     } else {
