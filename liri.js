@@ -43,6 +43,10 @@ axios.get(queryUrl).then(
     console.log('================ Movie Info ================');
     console.log("Title: " + response.data.Title);
     console.log("Release Year: " + response.data.Year);
+    console.log("Actors: " + response.data.Actors);
+    console.log("Plot: " + response.data.Plot);
+    console.log("Language: " + response.data.Language);
+    console.log("Country: " + response.data.Country);
     console.log("imdb Rating: " + response.data.imdbRating);
     console.log("Rotten Tomatoes Rating: " + response.data.Ratings[2].Value);
     console.log('============================================')
