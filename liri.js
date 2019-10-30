@@ -6,7 +6,7 @@ var keys = require("./keys.js");
 var fs = require("fs");
 var Spotify = require('node-spotify-api');
 
-//var spotify = new Spotify(keys.spotify);
+var spotify = new Spotify(keys.spotify);
 
 //setting the command to the third item the user types into the command line
 var command = process.argv[2];
@@ -31,12 +31,22 @@ for (var i = 4; i < process.argv.length; i++) {
 
 //Function that fetches IMDB information when user inputs get-movie
 function getMovie() {
+
+//defaulting to Mr. Nobody if no second command
+if (!secondCommand) {
+    secondCommand = "Mr. Nobody";
+    console.log("If you haven't watched 'Mr. Nobody,' then you should: <http://www.imdb.com/title/tt0485947/>");
+    console.log("It's on Netflix!");
+}
+
 // Then run a request with axios to the OMDB API with the movie specified
-var movieName = secondCommand;
-var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+var queryUrl = "http://www.omdbapi.com/?t=" + secondCommand + "&y=&plot=short&apikey=trilogy";
 
 // This line is just to help us debug against the actual URL.
 console.log(queryUrl);
+
+
 
 axios.get(queryUrl).then(
   function(response) {
@@ -76,8 +86,8 @@ axios.get(queryUrl).then(
 
 //Function that fetches bandsintown information
 function getConcert() {
-var bandName = secondCommand;
-var queryUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp";
+
+var queryUrl = "https://rest.bandsintown.com/artists/" + secondCommand + "/events?app_id=codingbootcamp";
 
 axios.get(queryUrl).then(
     function(response) {

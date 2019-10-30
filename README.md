@@ -13,19 +13,19 @@ Install node package modules (npm install) from the following:
 -Moment: used to convert to date format when displaying concert information
 -node-spotify-api: fetches data from the Spotify API
 -fs: accesses external files and pulls information
--dotenv: file that holds private API keys and to set what are known as environment variables to the global `process.env` object in node
+-dotenv: file that hides private API keys and to set what are known as environment variables to the global `process.env` object in node
 
 # Instructions
 Type node + root file path + command + second command into the command line to display the data you want to access.
 
-node liri.js get-concert:
+'node liri.js get-concert'
 Displays concert location, date and time, and venue name
 
-node liri.js get-movie:
+'node liri.js get-movie'
 Displays movie title, release year, IMDB rating, country, plot, language, actors, and Rotten Tomatoes rating. If no movie is provided, the program will default to "Mr. Nobody".
 
-node liri.js get-spotify:
+'node liri.js get-spotify'
 Displays the song's artist, song name, a preview link of the song from Spotify, and the album. If no song is provided, then the program will default to "The Sign" by Ace of Base
 
-node liri.js do-what-it-says: 
+'node liri.js do-what-it-says' 
 Displays text from the random.txt file
