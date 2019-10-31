@@ -131,7 +131,7 @@ function getAction() {
         if (err) {
           return console.log(err);
         }
-        data = data.split(", ");
+        data = (data.split(", "));
         console.log(data);
     });
 }
