@@ -7,6 +7,8 @@ var fs = require("fs");
 var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify(keys.spotify);
+var moment = require('moment');
+moment().format();
 
 //setting the command to the third item the user types into the command line
 var command = process.argv[2];
@@ -89,12 +91,16 @@ function getConcert() {
 
 var queryUrl = "https://rest.bandsintown.com/artists/" + secondCommand + "/events?app_id=codingbootcamp";
 
+console.log(queryUrl);
+
 axios.get(queryUrl).then(
     function(response) {
+        console.log(response);
+
       console.log('================ Band Info ================');
-      console.log("Venue name: " + response.data.venue.name);
-      console.log("Location: " + response.data.city + ", " + response.data.region + ", " + response.data.country);
-      console.log("Date: " + response.data.datetime);
+      console.log("Venue name: " + response.data[0].venue.name);
+      console.log("Location: " + response.data[0].venue.city + ", " + response.data[0].venue.region + ", " + response.data[0].venue.country);
+      console.log("Date: " + response.data[0].datetime);
       console.log('============================================')
     })
     .catch(function(error) {
@@ -140,11 +146,7 @@ function getAction() {
     break;
     
     case('get-spotify'):
-    if(secondCommand) {
-        getSpotify(secondCommand);
-    } else {
-        getSpotify("The Sign");
-    }
+    getSpotify();
     break;
     
     case('get-movie'):
