@@ -100,7 +100,7 @@ axios.get(queryUrl).then(
       console.log('================ Band Info ================');
       console.log("Venue name: " + response.data[0].venue.name);
       console.log("Location: " + response.data[0].venue.city + ", " + response.data[0].venue.region + ", " + response.data[0].venue.country);
-      console.log("Date: " + response.data[0].datetime);
+      console.log("Date: " + moment(response.data[0].datetime).format('L'));
       console.log('============================================')
     })
     .catch(function(error) {
