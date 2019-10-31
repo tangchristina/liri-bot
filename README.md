@@ -9,14 +9,15 @@ The Liri node bot application is similar to Apple's Siri app, taking in user com
 -Node.js
 
 Install node package modules (npm install) from the following:
--Axios: grabs data from the OMDB API and BandsinTown API
--Moment: used to convert to date format when displaying concert information
--node-spotify-api: fetches data from the Spotify API
--fs: accesses external files and pulls information
--dotenv: file that hides private API keys and to set what are known as environment variables to the global `process.env` object in node
+1. Axios: grabs data from the OMDB API and BandsinTown API
+2. Moment: used to format date when displaying concert information
+3. node-spotify-api: fetches data from the Spotify API
+4. fs: accesses external files and pulls information
+5. dotenv: file that hides private API keys and to set what are known as environment variables to the global `process.env` object in node
+
 
 # Instructions
-Type node + root file path + command + second command into the command line to display the data you want to access.
+Type node liri.js <a command listed below> into the command prompt to display the data you want to access.
 
 'node liri.js get-concert'
 Displays concert location, date and time, and venue name

@@ -95,10 +95,10 @@ console.log(queryUrl);
 
 axios.get(queryUrl).then(
     function(response) {
-        console.log(response);
+        
 
       console.log('================ Band Info ================');
-      console.log("Venue name: " + response.data[0].venue.name);
+      console.log("Venue Name: " + response.data[0].venue.name);
       console.log("Location: " + response.data[0].venue.city + ", " + response.data[0].venue.region + ", " + response.data[0].venue.country);
       console.log("Date: " + moment(response.data[0].datetime).format('L'));
       console.log('============================================')
@@ -138,6 +138,24 @@ function getAction() {
 
 
 //Function that fetches spotify information
+function getSpotify() {
+
+//Defaulting to search for The Sign by Ace of Base if no second user input
+    if (!secondCommand) {
+        secondCommand = "ace of base the sign";
+    } 
+
+    spotify.search({ type: 'track', query: secondCommand}, function(err, data) {
+        if (err) {
+          return console.log('Error occurred: ' + err);
+        }
+        
+        console.log("Artist(s): " + data.tracks.items[0].artists[0].name);
+        console.log("Song Name: " + data.tracks.items[0].name);
+        console.log("Link: " + data.tracks.items[0].preview_url);
+        console.log("Album: " + data.tracks.items[0].album.name);
+      });
+}
 
 //Switch function
   switch (command) {
