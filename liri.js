@@ -61,7 +61,7 @@ axios.get(queryUrl).then(
     console.log("Country: " + response.data.Country);
     console.log("imdb Rating: " + response.data.imdbRating);
     console.log("Rotten Tomatoes Rating: " + response.data.Ratings[2].Value);
-    console.log('============================================')
+    console.log('============================================');
   })
   .catch(function(error) {
     if (error.response) {
@@ -149,11 +149,12 @@ function getSpotify() {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
-        
+        console.log('============== Spotify Info ================');
         console.log("Artist(s): " + data.tracks.items[0].artists[0].name);
         console.log("Song Name: " + data.tracks.items[0].name);
         console.log("Link: " + data.tracks.items[0].preview_url);
         console.log("Album: " + data.tracks.items[0].album.name);
+        console.log('============================================');
       });
 }
 
