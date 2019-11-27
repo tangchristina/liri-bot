@@ -25,7 +25,7 @@ Displays concert location, date and time, and venue name
 
 'node liri.js get-movie'
 Displays movie title, release year, IMDB rating, country, plot, language, actors, and Rotten Tomatoes rating. If no movie is provided, the program will default to "Mr. Nobody".
-
+![](https://github.com/tangchristina/liri-bot/blob/master/getmoviegif.gif)
 
 'node liri.js get-spotify'
 Displays the song's artist, song name, a preview link of the song from Spotify, and the album. If no song is provided, then the program will default to "The Sign" by Ace of Base
